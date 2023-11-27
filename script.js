@@ -13,22 +13,38 @@ async function fetchData() {
     }
 }
 
-// Call the function
-fetchData();
-
 function selectWordPair() {
-    fetchData() // Use the fetched data
+    return fetchData()
         .then(data => {
-            if (!data) return; // Exit if there was an error fetching data
+            if (!data) return null;
 
             const randomIndex = Math.floor(Math.random() * data.length);
             const randomWordPair = data[randomIndex];
 
-            console.log(randomWordPair.english);
-            console.log(randomWordPair.dutch);
-            return randomWordPair
+            return randomWordPair;
         });
 }
+
+function populateOverlay() {
+    selectWordPair()
+        .then(wordPair => {
+            if (!wordPair) {
+                console.error('Error: Word pair is undefined.');
+                return;
+            }
+
+            const overlayTextElement = document.querySelector('#overlayText');
+            for (let i = 0; i < 5; i++) {
+                overlayTextElement.textContent += wordPair.english + ' ';
+                overlayTextElement.textContent += wordPair.dutch + ' ';
+            }
+        });
+}
+
+// Call the function
+populateOverlay();
+
+
 
 const typingBoardElement = document.querySelector('#typingBoard');
 const overlayTextElement = document.querySelector('#overlayText');
@@ -46,8 +62,10 @@ document.addEventListener('keydown', function (event) {
         if (typingBoardElement.textContent === overlayText) {
             // Clear typing board, generate new overlay text, and reset index
             typingBoardElement.textContent = '';
+            overlayTextElement.textContent = '';
             populateOverlay();
             currentIndex = 0;
+            console.log('im triggered')
         }
     } else {
         // TODO: Add a more interactive 'wrong key' notification
