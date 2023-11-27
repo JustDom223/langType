@@ -67,6 +67,7 @@ main{
 
 .typingContainer{
     display: grid;
+    justify-content: center;
 
 }
 
@@ -90,4 +91,8 @@ main{
 #overlayText{
     color: gray;
     opacity: 50%;
+}
+
+.blackBoard{
+    font-size: 4vw;
 }

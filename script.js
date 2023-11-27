@@ -5,7 +5,7 @@ async function fetchData() {
         const data = await response.json();
 
         // Do something with the data
-        console.log(data);
+        // console.log(data);
         return data; // Returning the data from the function
     } catch (error) {
         console.error('Error fetching JSON:', error);
@@ -34,7 +34,7 @@ function populateOverlay() {
             }
 
             const overlayTextElement = document.querySelector('#overlayText');
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 10; i++) {
                 overlayTextElement.textContent += wordPair.english + ' ';
                 overlayTextElement.textContent += wordPair.dutch + ' ';
             }
