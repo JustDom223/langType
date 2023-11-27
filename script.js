@@ -38,6 +38,7 @@ function populateOverlay() {
                 overlayTextElement.textContent += wordPair.english + ' ';
                 overlayTextElement.textContent += wordPair.dutch + ' ';
             }
+            overlayTextElement.textContent = overlayTextElement.textContent.slice(0, -1)
         });
 }
 
