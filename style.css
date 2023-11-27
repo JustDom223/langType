@@ -70,7 +70,7 @@ main{
 
 }
 
-.typingBoard{
+#typingBoard{
     grid-column-start: 1;
     grid-column-end: 2;
 
@@ -78,11 +78,16 @@ main{
     grid-row-end: 2;
 }
 
-.typingOverlay{
+#typingOverlay{
     grid-column-start: 1;
     grid-column-end: 2;
     
     grid-row-start: 1;
     grid-row-end: 2;
 
+}
+
+#overlayText{
+    color: gray;
+    opacity: 50%;
 }
